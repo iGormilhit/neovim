@@ -16,6 +16,9 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+" add some tags for html indentations 
+:let g:html_indent_inctags = "html,body,head,tbody"
+
 set showcmd			" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -65,15 +68,13 @@ autocmd FileType markdown set foldlevel=0           " Détermine le niveau de fo
 " `.md` for markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" add some tags for html indentations 
-:let g:html_indent_inctags = "html,body,head,tbody"
-
 " vim-pandoc
 :let g:pandoc#spell#default_langs = ['fr', 'en', 'de_de']  " default languages grammar check 
 
 " set C-l to :nohlsearch
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 
+" copy to clipboard with `"+y`
 set clipboard+=unnamedplus
 
 " airline
@@ -81,3 +82,7 @@ let g:airline_powerline_fonts = 1
 
 " vim-table-mode
 :let g:table_mode_corner='|'
+
+" netrw, instead of NERDTree
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
