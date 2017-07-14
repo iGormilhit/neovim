@@ -57,6 +57,7 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode.git'
 Plug 'https://github.com/shime/vim-livedown.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/elzr/vim-json.git'
+Plug 'https://github.com/tpope/vim-commentary'
 call plug#end()
 
 
