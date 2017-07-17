@@ -53,8 +53,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/dhruvasagar/vim-table-mode.git'
-Plug 'https://github.com/shime/vim-livedown.git'
+Plug 'https://github.com/dhruvasagar/vim-table-mode.git', { 'on': 'TableModeEnable' }
+Plug 'https://github.com/shime/vim-livedown.git', { 'on': 'LivedownPreview' }
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/elzr/vim-json.git'
 Plug 'https://github.com/tpope/vim-commentary'
