@@ -66,6 +66,9 @@ autocmd FileType json setlocal foldmethod=syntax    " Type de fold si c'est du J
 autocmd FileType json set foldlevel=2               " Détermine le niveau de fold par défaut pour le JSON
 autocmd FileType markdown set foldlevel=0           " Détermine le niveau de fold par défaut pour le md
 
+let g:xml_syntax_folding=3
+au FileType xml setlocal foldmethod=syntax
+
 " `.md` for markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
 
