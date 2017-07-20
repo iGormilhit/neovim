@@ -68,6 +68,7 @@ autocmd FileType markdown set foldlevel=0           " Détermine le niveau de fo
 
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
+autocmd FileType xml set foldlevel=1
 
 " `.md` for markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -90,3 +91,6 @@ let g:airline_powerline_fonts = 1
 " netrw, instead of NERDTree
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+
+" vim-json, don't conceal
+let g:vim_json_syntax_conceal = 0
