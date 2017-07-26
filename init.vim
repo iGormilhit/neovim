@@ -58,6 +58,7 @@ Plug 'https://github.com/shime/vim-livedown.git', { 'on': 'LivedownPreview' }
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/elzr/vim-json.git'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 call plug#end()
 
 
