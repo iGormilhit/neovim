@@ -60,6 +60,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'https://github.com/Rykka/riv.vim'
+Plug 'https://github.com/Rykka/InstantRst'
 call plug#end()
 
 
