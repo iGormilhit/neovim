@@ -62,6 +62,7 @@ Plug 'https://github.com/osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'https://github.com/Rykka/riv.vim'
 Plug 'https://github.com/Rykka/InstantRst'
 Plug 'https://github.com/davidhalter/jedi-vim'      " warning, may conflicts with python-mode
+Plug 'https://github.com/nvie/vim-flake8.git'
 call plug#end()
 
 
