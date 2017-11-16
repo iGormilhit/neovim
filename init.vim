@@ -63,6 +63,8 @@ Plug 'https://github.com/Rykka/riv.vim'
 Plug 'https://github.com/Rykka/InstantRst'
 Plug 'https://github.com/davidhalter/jedi-vim'      " warning, may conflicts with python-mode
 Plug 'https://github.com/nvie/vim-flake8.git'
+Plug 'https://github.com/kien/ctrlp.vim'
+Plug 'https://github.com/tomtom/tcomment_vim'
 call plug#end()
 
 
@@ -96,6 +98,7 @@ let g:airline_powerline_fonts = 1
 " netrw, instead of NERDTree
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+let g:netrw_browse_split = 3
 
 " vim-json, don't conceal
 let g:vim_json_syntax_conceal = 0
