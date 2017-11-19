@@ -3,7 +3,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Syntax coloration and color theme 
+    " Syntax coloration and color theme
 syntax enable
 set background=dark
 colorscheme solarized
@@ -16,7 +16,7 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
-" add some tags for html indentations 
+" add some tags for html indentations
 :let g:html_indent_inctags = "html,body,head,tbody"
 
 set showcmd			" Show (partial) command in status line.
@@ -28,14 +28,14 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
 set mouse=a			" Enable mouse usage (all modes)
 set linebreak		" Line wrap
-set number	        " Line numbering 
+set number	        " Line numbering
 set cindent
 set smartindent
 set autoindent
-set tabstop=4		
-set expandtab		
-set softtabstop=4	
-set shiftwidth=4	
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
 set ruler
 set wrap
 set modeline
@@ -81,7 +81,7 @@ autocmd FileType xml set foldlevel=1
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " vim-pandoc
-:let g:pandoc#spell#default_langs = ['fr', 'en', 'de_de']  " default languages grammar check 
+:let g:pandoc#spell#default_langs = ['fr', 'en', 'de_de']  " default languages grammar check
 
 " set C-l to :nohlsearch
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
