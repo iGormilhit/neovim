@@ -5,7 +5,7 @@ endif
 
 " Syntax coloration and color theme 
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Filetype detection
