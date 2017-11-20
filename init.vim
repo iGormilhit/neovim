@@ -64,7 +64,7 @@ Plug 'https://github.com/Rykka/InstantRst'
 Plug 'https://github.com/davidhalter/jedi-vim'      " warning, may conflicts with python-mode
 Plug 'https://github.com/nvie/vim-flake8.git'
 Plug 'https://github.com/kien/ctrlp.vim'
-Plug 'https://github.com/tomtom/tcomment_vim'
+Plug 'https://github.com/tpope/vim-commentary'
 call plug#end()
 
 
