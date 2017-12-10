@@ -42,7 +42,6 @@ set cursorline
 set ruler
 set modeline
 
-
 " fold
 autocmd FileType json setlocal foldmethod=syntax    " Type de fold si c'est du JSON
 autocmd FileType json set foldlevel=2               " Détermine le niveau de fold par défaut pour le JSON
@@ -104,4 +103,5 @@ Plug 'https://github.com/davidhalter/jedi-vim'      " warning, may conflicts wit
 Plug 'https://github.com/nvie/vim-flake8.git'
 Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/scrooloose/nerdtree'
 call plug#end()
