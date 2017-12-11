@@ -43,9 +43,12 @@ set ruler
 set modeline
 
 " fold
-autocmd FileType json setlocal foldmethod=syntax    " Type de fold si c'est du JSON
-autocmd FileType json set foldlevel=2               " Détermine le niveau de fold par défaut pour le JSON
-autocmd FileType markdown set foldlevel=0           " Détermine le niveau de fold par défaut pour le md
+" Type de fold si c'est du JSON
+autocmd FileType json setlocal foldmethod=syntax
+" Détermine le niveau de fold par défaut pour le JSON
+autocmd FileType json set foldlevel=2
+" Détermine le niveau de fold par défaut pour le md
+autocmd FileType markdown set foldlevel=0
 
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
@@ -78,30 +81,37 @@ let g:netrw_browse_split = 3
 " vim-json, don't conceal
 let g:vim_json_syntax_conceal = 0
 
+" ctrlP
+" set the working directory
+let g:ctrlp_working_path_mode = 'ra'
+" enable caching
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/vim-pandoc/vim-pandoc.git'
-Plug 'https://github.com/vim-pandoc/vim-pandoc-syntax.git'
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'https://github.com/vim-syntastic/syntastic.git'
-Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/dhruvasagar/vim-table-mode.git', { 'on': 'TableModeEnable' }
-Plug 'https://github.com/shime/vim-livedown.git', { 'on': 'LivedownPreview' }
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/elzr/vim-json.git'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/osyo-manga/vim-over', { 'on': 'OverCommandLine' }
-Plug 'https://github.com/Rykka/riv.vim'
-Plug 'https://github.com/Rykka/InstantRst'
-Plug 'https://github.com/davidhalter/jedi-vim'      " warning, may conflicts with python-mode
-Plug 'https://github.com/nvie/vim-flake8.git'
-Plug 'https://github.com/kien/ctrlp.vim'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+Plug 'vim-syntastic/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
+Plug 'shime/vim-livedown', { 'on': 'LivedownPreview' }
+Plug 'elzr/vim-json'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
+Plug 'Rykka/riv.vim'
+Plug 'Rykka/InstantRst'
+Plug 'davidhalter/jedi-vim'      " warning, may conflicts with python-mode
+Plug 'nvie/vim-flake8'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
 call plug#end()
