@@ -42,6 +42,12 @@ set cursorline
 set ruler
 set modeline
 
+" Markdown
+" `.md` for markdown files
+au FileType markdown set wrap
+au FileType markdown set showbreak=↳\ 
+au FileType markdown set linebreak
+
 " fold
 " Type de fold si c'est du JSON
 autocmd FileType json setlocal foldmethod=syntax
@@ -53,9 +59,6 @@ autocmd FileType markdown set foldlevel=0
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
 autocmd FileType xml set foldlevel=1
-
-" `.md` for markdown files
-au BufRead,BufNewFile *.md set filetype=markdown
 
 " vim-pandoc
 " default languages grammar check
