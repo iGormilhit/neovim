@@ -45,8 +45,9 @@ set modeline
 " Markdown
 " `.md` for markdown files
 au FileType markdown set wrap
-au FileType markdown set showbreak=↳\ 
+au FileType markdown set nocursorline 
 au FileType markdown set linebreak
+au FileType markdown set colorcolumn&
 
 " fold
 " Type de fold si c'est du JSON
