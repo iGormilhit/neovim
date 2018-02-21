@@ -1,6 +1,6 @@
 " Syntax coloration and color theme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Filetype detection
