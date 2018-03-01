@@ -23,11 +23,13 @@ set shiftwidth=4
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 
 set showcmd			" Show (partial) command in status line.
+set showmode        " Show indication of having changed modes
 set showmatch		" Show matching brackets.
 
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
+set hlsearch        " Highlight search
 
 set autowrite		" Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
