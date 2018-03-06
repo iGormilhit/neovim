@@ -20,7 +20,7 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
-autocmd FileType json setlocal shiftwidth=2 tabstop=2
+" autocmd FileType json setlocal shiftwidth=2 tabstop=2
 
 set showcmd			" Show (partial) command in status line.
 set showmode        " Show indication of having changed modes
