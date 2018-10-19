@@ -1,6 +1,6 @@
 " Syntax coloration and color theme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Filetype detection
@@ -58,8 +58,14 @@ autocmd BufNewFile,BufRead *.jsonld setfiletype json
 autocmd FileType json setlocal foldmethod=syntax
 " Détermine le niveau de fold par défaut pour le JSON
 autocmd FileType json set foldlevel=2
+autocmd FileType json set tabstop=2
+autocmd FileType json set softtabstop=2
 " Détermine le niveau de fold par défaut pour le md
 autocmd FileType markdown set foldlevel=0
+" Détermine l'indentation par défaut pour le html
+autocmd FileType html set tabstop=2
+autocmd FileType html set softtabstop=2
+autocmd FileType html set shiftwidth=2
 
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
@@ -122,4 +128,5 @@ Plug 'davidhalter/jedi-vim'      " warning, may conflicts with python-mode
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'Floobits/floobits-neovim'
 call plug#end()
