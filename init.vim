@@ -1,6 +1,6 @@
 " Syntax coloration and color theme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Filetype detection
@@ -52,6 +52,10 @@ au FileType markdown set colorcolumn&
 
 " Consider `.jsonld` as JSON
 autocmd BufNewFile,BufRead *.jsonld setfiletype json
+" tabstop to 2 for JSON
+au FileType json set tabstop=2
+au FileType json set softtabstop=2
+au FileType json set shiftwidth=2
 
 " fold
 " Type de fold si c'est du JSON
@@ -90,7 +94,13 @@ let g:airline_powerline_fonts = 1
 " netrw, instead of NERDTree
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-let g:netrw_browse_split = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 
 " vim-json, don't conceal
 let g:vim_json_syntax_conceal = 0
@@ -101,6 +111,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " enable caching
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+" enable autocomplete
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
@@ -129,4 +142,10 @@ Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Floobits/floobits-neovim'
+Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'Shougo/neco-syntax'
+Plug 'ncm2/ncm2-syntax'
 call plug#end()

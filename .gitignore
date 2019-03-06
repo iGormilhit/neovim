@@ -1,5 +1,6 @@
 # `vim-plug` plugins
 plugged/*
+autoload
 
 # netrw
 .netrwhist
