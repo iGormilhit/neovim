@@ -87,6 +87,7 @@ set clipboard+=unnamedplus
 
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#wordcount#filetypes = 'pandoc\|text\|' "Add support when pandoc is activated
 
 " vim-table-mode
 :let g:table_mode_corner='|'
