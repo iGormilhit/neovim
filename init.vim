@@ -144,7 +144,6 @@ Plug 'davidhalter/jedi-vim'      " warning, may conflicts with python-mode
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Floobits/floobits-neovim'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
