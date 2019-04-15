@@ -107,7 +107,9 @@ let g:netrw_winsize = 20
 let g:vim_json_syntax_conceal = 0
 
 " ctrlP
-" set the working directory
+" match window position
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+"set the working directory
 let g:ctrlp_working_path_mode = 'ra'
 " enable caching
 let g:ctrlp_use_caching = 1
