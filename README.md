@@ -8,7 +8,7 @@ Firstly, I don't use any more `pathogen` for the management of plugins, but `vim
 
 1. `neovim`
 2. `git`
-3. `nodejs` et `npm`
+3. `nodejs`, `yarn`
 
 ## Installation
 
@@ -33,9 +33,5 @@ For `vim-colors-solarized`, a symlink is needed:
 cd $HOME/neovim/colors #or the dir. where you've clone this repository
 ln -s ../plugged/vim-colors-solarized/colors/solarized.vim solarized.vim
 ```
-
-For `vim-livedown`, the `node` `livedown` package needs to be installed globally:
-
-`npm install -g livedown`
 
 For `InstantRst`, the python package `instant-rst` is needed. See the [documentation](https://github.com/Rykka/InstantRst#1install).

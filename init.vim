@@ -135,7 +135,7 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
-Plug 'shime/vim-livedown', { 'on': 'LivedownPreview' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'elzr/vim-json'
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'Rykka/riv.vim'
