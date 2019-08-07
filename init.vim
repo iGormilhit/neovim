@@ -37,7 +37,7 @@ set mouse=a			" Enable mouse usage (all modes)
 
 set linebreak		" Line wrap
 set tw=79           " Lines longer than 79 chars will be wrapped
-set colorcolumn=79  " Colors the 79th column
+set colorcolumn=+1  " Colors the tw+1 column
 
 set number	        " Line numbering
 set cursorline
@@ -45,13 +45,10 @@ set ruler
 set modeline
 
 " Markdown
-au FileType markdown set wrap
-au FileType markdown set nocursorline 
-au FileType markdown set linebreak
-au FileType markdown set colorcolumn&
+autocmd FileType markdown set nocursorline 
 
 " Consider `.jsonld` as JSON
-autocmd BufNewFile,BufRead *.jsonld setfiletype json
+autocmd BufNewFile,BufRead *.jsonld set filetype=json
 " tabstop to 2 for JSON
 au FileType json set tabstop=2
 au FileType json set softtabstop=2
@@ -78,6 +75,10 @@ autocmd FileType xml set foldlevel=1
 " vim-pandoc
 " default languages grammar check
 :let g:pandoc#spell#default_langs = ['fr', 'en']
+" formatting module mode hard wrap
+:let g:pandoc#formatting#colorcolumn = +1 
+:let g:pandoc#formatting#textwidth = 79
+:let g:pandoc#formatting#mode = "hA"
 
 " set C-l to :nohlsearch
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
