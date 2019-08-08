@@ -104,6 +104,10 @@ let g:netrw_winsize = 20
 "   autocmd VimEnter * :Vexplore
 " augroup END
 
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 " vim-json, don't conceal
 let g:vim_json_syntax_conceal = 0
 
