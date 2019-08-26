@@ -59,14 +59,6 @@ let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
 autocmd FileType xml set foldlevel=1
 
-" vim-pandoc
-" default languages grammar check
-:let g:pandoc#spell#default_langs = ['fr', 'en']
-" formatting module mode hard wrap
-:let g:pandoc#formatting#textwidth = 79
-:let g:pandoc#formatting#colorcolumn = +1 
-:let g:pandoc#formatting#mode = "hA"
-
 " copy to clipboard with `"+y`
 set clipboard+=unnamedplus
 
@@ -94,12 +86,21 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
+" Load vim-pandoc-syntax for markdown files
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'                           " default settings
-Plug 'vim-pandoc/vim-pandoc'                        " pandoc
-Plug 'vim-pandoc/vim-pandoc-syntax'                 " support md syntax
+Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
+Plug 'reedes/vim-pencil'                            " for prose writing
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'Rykka/riv.vim'                                " rst syntax support
+Plug 'Rykka/InstantRst'                             " rst preview
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -107,15 +108,11 @@ Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
 Plug 'tpope/vim-surround'                           " to manipulate surroundings
 Plug 'tpope/vim-unimpaired'                         " toggle shortcut
 Plug 'tpope/vim-commentary'                         " easy commenting
-Plug 'tpope/vim-fugitive'                           " git
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'elzr/vim-json'
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
-Plug 'Rykka/riv.vim'                                " rst syntax support
-Plug 'Rykka/InstantRst'                             " rst preview
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'                           " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
 call plug#end()
