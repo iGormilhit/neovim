@@ -65,6 +65,7 @@ set clipboard+=unnamedplus
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#filetypes = 'pandoc\|text\|' "Add support when pandoc is activated
+let g:airline_theme='solarized'
 
 " vim-table-mode
 :let g:table_mode_corner='|'
@@ -91,6 +92,22 @@ augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
+" autocompletion
+let g:deoplete#enable_at_startup = 1                " start deoplete at startup
+" Close suggestion window at completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" Use tab to sensible items in the suggestion list
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+"Code jump
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+" Python linting
+let g:neomake_python_enabled_makers = ['flake8']
+
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'                           " default settings
@@ -115,4 +132,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'                           " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
+" Auto completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
+Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
+Plug 'davidhalter/jedi-vim'                         " Code jump
+Plug 'neomake/neomake'                              " Python linting
 call plug#end()
+
+call neomake#configure#automake('nrwi', 500)        " autolint
