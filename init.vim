@@ -33,6 +33,7 @@ set linebreak		" Line wrap
 set tw=79           " Lines longer than 79 chars will be wrapped
 set colorcolumn=+1  " Colors the tw+1 column
 set number	        " Line numbering
+au TermOpen * setlocal listchars= nonumber norelativenumber
 set cursorline
 set modeline
 
