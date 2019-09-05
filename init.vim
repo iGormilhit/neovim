@@ -109,6 +109,9 @@ let g:jedi#use_splits_not_buffers = "right"
 " Python linting
 let g:neomake_python_enabled_makers = ['flake8']
 
+" Imports sorting
+let g:isort_command = 'isort'
+
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'                           " default settings
@@ -139,6 +142,8 @@ Plug 'zchee/deoplete-jedi'                          " source for python autocomp
 Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
 Plug 'davidhalter/jedi-vim'                         " Code jump
 Plug 'neomake/neomake'                              " Python linting
+" Imports sorting
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 call plug#end()
 
 call neomake#configure#automake('nrwi', 500)        " autolint
