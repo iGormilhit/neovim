@@ -37,6 +37,9 @@ au TermOpen * setlocal listchars= nonumber norelativenumber
 set cursorline
 set modeline
 
+set spell
+set spelllang=fr,en,de
+
 " Consider `.jsonld` as JSON
 autocmd BufNewFile,BufRead *.jsonld set filetype=json
 " tabstop to 2 for JSON
