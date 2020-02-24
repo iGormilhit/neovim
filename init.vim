@@ -1,6 +1,6 @@
 " Syntax coloration and color theme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " Filetype detection
@@ -139,6 +139,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'                           " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
