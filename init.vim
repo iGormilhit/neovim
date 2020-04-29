@@ -1,6 +1,6 @@
 " Syntax coloration and color theme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 " Filetype detection
@@ -31,14 +31,19 @@ set hidden          " Hide buffers when they are abandoned
 set mouse=a			" Enable mouse usage (all modes)
 set linebreak		" Line wrap
 set tw=79           " Lines longer than 79 chars will be wrapped
+autocmd FileType gitcommit set textwidth=72
 set colorcolumn=+1  " Colors the tw+1 column
+autocmd FileType gitcommit set colorcolumn+=51
 set number	        " Line numbering
 au TermOpen * setlocal listchars= nonumber norelativenumber
 set cursorline
 set modeline
 
 set spell
-set spelllang=fr,en,de
+set spelllang=fr,en
+autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spelllang=en
+
 
 " Consider `.jsonld` as JSON
 autocmd BufNewFile,BufRead *.jsonld set filetype=json
@@ -48,6 +53,8 @@ au FileType json set softtabstop=2
 au FileType json set shiftwidth=2
 
 " fold
+set foldmethod=syntax
+set foldlevel=1
 " Type de fold si c'est du JSON
 autocmd FileType json setlocal foldmethod=syntax
 " Détermine le niveau de fold par défaut pour le JSON
@@ -70,6 +77,7 @@ set clipboard+=unnamedplus
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#filetypes = 'pandoc\|text\|' "Add support when pandoc is activated
 let g:airline_theme='solarized'
+" let g:airline_section_x = '%{PencilMode()}'
 
 " vim-table-mode
 :let g:table_mode_corner='|'
@@ -92,9 +100,14 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
 " Load vim-pandoc-syntax for markdown files
-augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-augroup END
+" augroup pandoc_syntax
+"     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+" augroup END
+" Pandoc
+let g:pandoc#formatting#mode = "hA"
+nnoremap <C-s> :call pandoc#formatting#UseSoftWraps()
+nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
+nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
 
 " autocompletion
 let g:deoplete#enable_at_startup = 1                " start deoplete at startup
@@ -118,8 +131,9 @@ let g:isort_command = 'isort'
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'                           " default settings
+Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
-Plug 'reedes/vim-pencil'                            " for prose writing
+" Plug 'reedes/vim-pencil'                            " for prose writing
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
