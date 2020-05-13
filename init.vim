@@ -1,8 +1,3 @@
-" Syntax coloration and color theme
-syntax enable
-set background=light
-colorscheme solarized
-
 " Filetype detection
 filetype plugin on
 
@@ -76,7 +71,7 @@ set clipboard+=unnamedplus
 " airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#wordcount#filetypes = 'pandoc\|text\|' "Add support when pandoc is activated
-let g:airline_theme='solarized'
+let g:airline_theme='nord'
 " let g:airline_section_x = '%{PencilMode()}'
 
 " vim-table-mode
@@ -130,6 +125,7 @@ let g:isort_command = 'isort'
 
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
+Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
 Plug 'tpope/vim-sensible'                           " default settings
 Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
@@ -165,3 +161,8 @@ Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 call plug#end()
 
 call neomake#configure#automake('nrwi', 500)        " autolint
+
+" Syntax coloration and color theme
+syntax enable
+set background=dark
+colorscheme nord
