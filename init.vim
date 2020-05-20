@@ -1,3 +1,41 @@
+" plugins (vim-plug)
+call plug#begin('~/.config/nvim/plugged')
+Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
+Plug 'tpope/vim-sensible'                           " default settings
+Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
+Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
+" Plug 'reedes/vim-pencil'                            " for prose writing
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'gu-fan/riv.vim'                                " rst syntax support
+Plug 'gu-fan/InstantRst'                             " rst preview
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
+Plug 'tpope/vim-surround'                           " to manipulate surroundings
+Plug 'tpope/vim-unimpaired'                         " toggle shortcut
+Plug 'tpope/vim-commentary'                         " easy commenting
+Plug 'elzr/vim-json'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'                           " git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
+" Auto completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
+Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
+Plug 'davidhalter/jedi-vim'                         " Code jump
+Plug 'neomake/neomake'                              " Python linting
+" Imports sorting
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
+call plug#end()
+
+
 " Filetype detection
 filetype plugin on
 
@@ -122,43 +160,6 @@ let g:neomake_python_enabled_makers = ['flake8']
 
 " Imports sorting
 let g:isort_command = 'isort'
-
-" plugins (vim-plug)
-call plug#begin('~/.config/nvim/plugged')
-Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
-Plug 'tpope/vim-sensible'                           " default settings
-Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
-Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
-" Plug 'reedes/vim-pencil'                            " for prose writing
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'Rykka/riv.vim'                                " rst syntax support
-Plug 'Rykka/InstantRst'                             " rst preview
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
-Plug 'tpope/vim-surround'                           " to manipulate surroundings
-Plug 'tpope/vim-unimpaired'                         " toggle shortcut
-Plug 'tpope/vim-commentary'                         " easy commenting
-Plug 'elzr/vim-json'
-Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'                           " git
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'https://github.com/editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-" Auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
-Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
-Plug 'davidhalter/jedi-vim'                         " Code jump
-Plug 'neomake/neomake'                              " Python linting
-" Imports sorting
-Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
-call plug#end()
 
 call neomake#configure#automake('nrwi', 500)        " autolint
 
