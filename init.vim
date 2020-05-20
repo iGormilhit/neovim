@@ -155,6 +155,9 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 
+" Python provider in a pyenv
+let g:python3_host_prog = '/home/igor/.pyenv/versions/neovim3/bin/python'
+
 " Python linting
 let g:neomake_python_enabled_makers = ['flake8']
 
