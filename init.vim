@@ -1,24 +1,23 @@
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
-Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
 Plug 'sheerun/vim-polyglot'                         " Many languages syntax support
                                                     " Should be on top to be overwritten by pandoc
 Plug 'tpope/vim-sensible'                           " default settings
 Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
-" Plug 'reedes/vim-pencil'                            " for prose writing
+Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'gu-fan/riv.vim'                                " rst syntax support
-Plug 'gu-fan/InstantRst'                             " rst preview
+Plug 'gu-fan/riv.vim', { 'for': 'rst' }             " rst syntax support
+Plug 'gu-fan/InstantRst', { 'for': 'rst' }          " rst preview
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
 Plug 'tpope/vim-surround'                           " to manipulate surroundings
 Plug 'tpope/vim-unimpaired'                         " toggle shortcut
 Plug 'tpope/vim-commentary'                         " easy commenting
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -132,10 +131,6 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-" Load vim-pandoc-syntax for markdown files
-" augroup pandoc_syntax
-"     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-" augroup END
 " Pandoc
 let g:pandoc#formatting#mode = "hA"
 nnoremap <C-s> :call pandoc#formatting#UseSoftWraps()
