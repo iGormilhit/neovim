@@ -4,7 +4,6 @@ Plug 'sheerun/vim-polyglot'                                                 " Ma
 Plug 'tpope/vim-sensible'                                                   " Default sensible settings
 Plug 'vim-pandoc/vim-pandoc'                                                " Pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                                         " Markdown syntax support 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Markdown preview
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }              " Helper for table in markdown
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }                                  " Distraction free mode for writing
 Plug 'dpelle/vim-Grammalecte'                                               " French ortho/grammar spelling
@@ -80,8 +79,7 @@ set spelllang=fr,en
 " Specific spelling configuration for git commit messages
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit setlocal spelllang=en
-" Path for grammalecte-cli to get grammar check in French
-let g:grammalecte_cli_py='/usr/bin/grammalecte-cli'
+
 
 " Consider `.jsonld` as JSON
 autocmd BufNewFile,BufRead *.jsonld set filetype=json
@@ -145,7 +143,6 @@ nnoremap <C-s> :call pandoc#formatting#UseSoftWraps()
 nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
 " ctrl+t toggle autoformat (mainly to deactivate it when necessary)
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
-let g:mkdp_filetypes = ['markdown', 'pandoc', 'pandoc.markdown']
 
 " Linters (syntastic configuration)
 " SCSS linter
@@ -172,9 +169,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:jedi#completions_enabled=0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers="right"
-
-" Python provider in a pyenv
-let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 
 " Imports sorting
 let g:isort_command='isort'
