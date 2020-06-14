@@ -1,6 +1,8 @@
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
+Plug 'sheerun/vim-polyglot'                         " Many languages syntax support
+                                                    " Should be on top to be overwritten by pandoc
 Plug 'tpope/vim-sensible'                           " default settings
 Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
@@ -10,7 +12,6 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'gu-fan/riv.vim'                                " rst syntax support
 Plug 'gu-fan/InstantRst'                             " rst preview
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
@@ -24,7 +25,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'                           " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
