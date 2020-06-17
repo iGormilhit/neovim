@@ -32,8 +32,10 @@ Plug 'davidhalter/jedi-vim'                         " Code jump
 Plug 'neomake/neomake'                              " Python linting
 " Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
+Plug 'vitalk/vim-simple-todo'
 call plug#end()
 
+let mapleader = "<"
 
 " Filetype detection
 filetype plugin on
