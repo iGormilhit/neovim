@@ -33,9 +33,9 @@ Plug 'neomake/neomake'                              " Python linting
 " Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'
+" Search
+Plug 'jremmen/vim-ripgrep'                          " Use ripgrep
 call plug#end()
-
-let mapleader = "<"
 
 " Filetype detection
 filetype plugin on
@@ -46,7 +46,7 @@ if has("autocmd")
 endif
 
 " add some tags for html indentations
-:let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_inctags="html,body,head,tbody"
 
 set smartindent
 set tabstop=4
@@ -59,15 +59,16 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set hlsearch        " Highlight search
+let g:rg_highlight='true'                           " Activate ripgrep Highlighting
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>        " set C-l to :nohlsearch
 set autowrite		" Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
 set mouse=a			" Enable mouse usage (all modes)
 set linebreak		" Line wrap
 set tw=79           " Lines longer than 79 chars will be wrapped
-autocmd FileType gitcommit set textwidth=72
+autocmd FileType gitcommit set textwidth=72         " Wrap lines longer than 72 chars for git messages
 set colorcolumn=+1  " Colors the tw+1 column
-autocmd FileType gitcommit set colorcolumn+=51
+autocmd FileType gitcommit set colorcolumn+=51      " Add a colored column at 51 chars for git message titles
 set number	        " Line numbering
 au TermOpen * setlocal listchars= nonumber norelativenumber
 set cursorline
@@ -108,13 +109,12 @@ autocmd FileType xml set foldlevel=1
 set clipboard+=unnamedplus
 
 " airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#wordcount#filetypes = 'pandoc\|text\|' "Add support when pandoc is activated
+let g:airline_powerline_fonts=1
+let g:airline#extensions#wordcount#filetypes='pandoc\|text\|' "Add support when pandoc is activated
 let g:airline_theme='nord'
-" let g:airline_section_x = '%{PencilMode()}'
 
 " vim-table-mode
-:let g:table_mode_corner='|'
+let g:table_mode_corner='|'
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -122,25 +122,29 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinSize=40
 
 " vim-json, don't conceal
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_syntax_conceal=0
 
 " ctrlP
 " match window position
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_match_window='top,order:ttb,min:1,max:10,results:10'
 "set the working directory
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode='ra'
 " enable caching
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_use_caching=1
+let g:ctrlp_clear_cache_on_exit=0
 
 " Pandoc
-let g:pandoc#formatting#mode = "hA"
+" Autoformatting with hardwrap
+let g:pandoc#formatting#mode="hA"
+" ctrl+s switch to softwrap
 nnoremap <C-s> :call pandoc#formatting#UseSoftWraps()
+" ctrl+h switch to hardwrap
 nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
+" ctrl+t toggle autoformat (mainly to deactivate it when necessary)
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
 
 " autocompletion
-let g:deoplete#enable_at_startup = 1                " start deoplete at startup
+let g:deoplete#enable_at_startup=1                " start deoplete at startup
 " Close suggestion window at completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " Use tab to sensible items in the suggestion list
@@ -148,18 +152,18 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Code jump
 " disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled=0
 " open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#use_splits_not_buffers="right"
 
 " Python provider in a pyenv
-let g:python3_host_prog = '/home/igor/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 
 " Python linting
-let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_enabled_makers=['flake8']
 
 " Imports sorting
-let g:isort_command = 'isort'
+let g:isort_command='isort'
 
 call neomake#configure#automake('nrwi', 500)        " autolint
 
