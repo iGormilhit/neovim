@@ -10,7 +10,6 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'gu-fan/riv.vim', { 'for': 'rst' }             " rst syntax support
-Plug 'gu-fan/InstantRst', { 'for': 'rst' }          " rst preview
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
@@ -35,6 +34,8 @@ Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'
 " Search
 Plug 'jremmen/vim-ripgrep'                          " Use ripgrep
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Filetype detection
@@ -166,6 +167,9 @@ let g:neomake_python_enabled_makers=['flake8']
 let g:isort_command='isort'
 
 call neomake#configure#automake('nrwi', 500)        " autolint
+
+" Should avoid deoplete to slow down the closing process
+" au TermClose * call OnTermClose()
 
 " Syntax coloration and color theme
 syntax enable
