@@ -6,6 +6,7 @@ Plug 'tpope/vim-sensible'                           " default settings
 Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
 Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
+Plug 'dpelle/vim-Grammalecte'                       " French ortho/grammar spelling
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -75,11 +76,14 @@ au TermOpen * setlocal listchars= nonumber norelativenumber
 set cursorline
 set modeline
 
+" Spelling activated, by default for French and English
 set spell
 set spelllang=fr,en
+" Specific spelling configuration for git commit messages
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit setlocal spelllang=en
-
+" Path for grammalecte-cli to get grammar check in French
+let g:grammalecte_cli_py='/usr/bin/grammalecte-cli'
 
 " Consider `.jsonld` as JSON
 autocmd BufNewFile,BufRead *.jsonld set filetype=json

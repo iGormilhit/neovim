@@ -16,6 +16,7 @@ I'm using the [nord color scheme][5].
 1. `nodejs`, `yarn`
 1. [ripgrep][2]
 1. [The Silver Searcher (`ag`)][3]
+1. `grammalecte`, the python standalone program.
 
 ## Installation
 
