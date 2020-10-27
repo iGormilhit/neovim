@@ -22,6 +22,9 @@ I'm using the [nord color scheme][5].
 1. [ripgrep][2]
 1. [The Silver Searcher (`ag`)][3]
 1. `grammalecte`, the python standalone program.
+1. All or any of these python linters: `pep8`, `flake8`, `pycodestyle`,
+   `pyflakes`.
+1. `scss_lint` (ruby), for SCSS lint.
 
 ## Installation
 

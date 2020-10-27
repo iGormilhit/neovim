@@ -1,42 +1,40 @@
 " plugins (vim-plug)
 call plug#begin('~/.config/nvim/plugged')
-Plug 'sheerun/vim-polyglot'                         " Many languages syntax support
-                                                    " Should be on top to be overwritten by pandoc
-Plug 'tpope/vim-sensible'                           " default settings
-Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
-Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
-Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
-Plug 'dpelle/vim-Grammalecte'                       " French ortho/grammar spelling
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }          " distraction free
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'gu-fan/riv.vim', { 'for': 'rst' }             " rst syntax support
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'                         " pairs autocomplete
-Plug 'tpope/vim-surround'                           " to manipulate surroundings
-Plug 'tpope/vim-unimpaired'                         " toggle shortcut
-Plug 'tpope/vim-commentary'                         " easy commenting
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'                           " git
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'https://github.com/editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'                      " Syntax checking (linting)
+Plug 'sheerun/vim-polyglot'                                                 " Many languages syntax support. Should be on top to be overwritten by pandoc
+Plug 'tpope/vim-sensible'                                                   " Default sensible settings
+Plug 'vim-pandoc/vim-pandoc'                                                " Pandoc support 
+Plug 'vim-pandoc/vim-pandoc-syntax'                                         " Markdown syntax support 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Markdown preview
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }              " Helper for table in markdown
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }                                  " Distraction free mode for writing
+Plug 'dpelle/vim-Grammalecte'                                               " French ortho/grammar spelling
+Plug 'gu-fan/riv.vim', { 'for': 'rst' }                                     " restructuredtext syntax support
+Plug 'arcticicestudio/nord-vim'                                             " Nord color scheme
+Plug 'vim-airline/vim-airline'                                              " Fancy bottom line in vim/neovim
+Plug 'vim-airline/vim-airline-themes'                                       " Themes for vim-airlines
+Plug 'jiangmiao/auto-pairs'                                                 " Pairs autocomplete
+Plug 'tpope/vim-surround'                                                   " To manipulate surroundings
+Plug 'tpope/vim-unimpaired'                                                 " Toggle shortcut
+Plug 'tpope/vim-commentary'                                                 " Easy commenting
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }                     " Search Multiple Highlighting
+Plug 'scrooloose/nerdtree'                                                  " Side window files navigation
+Plug 'tpope/vim-fugitive'                                                   " Git commands, useful for other plugins such as nerdtree or fzf
+Plug 'Xuyuanp/nerdtree-git-plugin'                                          " To see new or modified files in the nerdtree window
+Plug 'https://github.com/editorconfig/editorconfig-vim'                     " Support of '.editorconfig' files
+Plug 'vim-syntastic/syntastic'                                              " Syntax checking (linting)
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
-Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
-Plug 'davidhalter/jedi-vim'                         " Code jump
+Plug 'zchee/deoplete-jedi'                                                  " source for python autocompletion
+Plug 'Shougo/neco-syntax'                                                   " other sources for autocompletion
+Plug 'davidhalter/jedi-vim'                                                 " Code jump
 " Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'
 " Search
-Plug 'jremmen/vim-ripgrep'                          " Use ripgrep
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'                                                       " Search 'Ctrl+P' like
+Plug 'jremmen/vim-ripgrep'                                                  " Use ripgrep as vimgrep
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy search, ensure fzf is fresh installed
+Plug 'junegunn/fzf.vim'                                                     " fzf for vim/neovim
 call plug#end()
 
 " Filetype detection
@@ -55,26 +53,26 @@ set tabstop=4
 set expandtab
 set softtabstop=4
 set shiftwidth=4
-set showcmd			" Show (partial) command in status line.
-set showmode        " Show indication of having changed modes
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set hlsearch        " Highlight search
-let g:rg_highlight='true'                           " Activate ripgrep Highlighting
-nnoremap <silent> <C-l> :nohlsearch<CR><C-l>        " set C-l to :nohlsearch
-set autowrite		" Automatically save before commands like :next and :make
-set hidden          " Hide buffers when they are abandoned
-set mouse=a			" Enable mouse usage (all modes)
-set linebreak		" Line wrap
-set tw=79           " Lines longer than 79 chars will be wrapped
-autocmd FileType gitcommit set textwidth=72         " Wrap lines longer than 72 chars for git messages
-set colorcolumn=+1  " Colors the tw+1 column
-autocmd FileType gitcommit set colorcolumn+=51      " Add a colored column at 51 chars for git message titles
-set number	        " Line numbering
-au TermOpen * setlocal listchars= nonumber norelativenumber
-set cursorline
-set modeline
+set showcmd                                                                 " Show (partial) command in status line.
+set showmode                                                                " Show indication of having changed modes
+set showmatch                                                               " Show matching brackets.
+set ignorecase                                                              " Do case insensitive matching
+set smartcase                                                               " Do smart case matching
+set hlsearch                                                                " Highlight search
+let g:rg_highlight='true'                                                   " Activate ripgrep Highlighting
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>                                " set C-l to :nohlsearch
+set autowrite                                                               " Automatically save before commands like :next and :make
+set hidden                                                                  " Hide buffers when they are abandoned
+set mouse=a                                                                 " Enable mouse usage (all modes)
+set linebreak                                                               " Line wrap
+set tw=79                                                                   " Lines longer than 79 chars will be wrapped
+autocmd FileType gitcommit set textwidth=72                                 " Wrap lines longer than 72 chars for git messages
+set colorcolumn=+1                                                          " Colors the tw+1 column
+autocmd FileType gitcommit set colorcolumn+=51                              " Add a colored column at 51 chars for git message titles
+set number	                                                                " Line numbering
+au TermOpen * setlocal listchars= nonumber norelativenumber                 " Start terminal buffer without line numbering
+set cursorline                                                              " Color the cursor line
+set modeline                                                                " Support modelines
 
 " Spelling activated, by default for French and English
 set spell
@@ -92,36 +90,36 @@ au FileType json set tabstop=2
 au FileType json set softtabstop=2
 au FileType json set shiftwidth=2
 
-" fold
+" Fold
 set foldmethod=syntax
 set foldlevel=1
-" Type de fold si c'est du JSON
+" Fold type for JSON
 autocmd FileType json setlocal foldmethod=syntax
-" Détermine le niveau de fold par défaut pour le JSON
+" Default fold type for JSON
 autocmd FileType json set foldlevel=2
 autocmd FileType json set tabstop=2
 autocmd FileType json set softtabstop=2
-" Détermine l'indentation par défaut pour le html
+" Default fold type for HTML 
 autocmd FileType html set tabstop=2
 autocmd FileType html set softtabstop=2
 autocmd FileType html set shiftwidth=2
-
+" Default fold type for XML 
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
 autocmd FileType xml set foldlevel=1
 
-" copy to clipboard with `"+y`
+" Copy to clipboard with `"+y`
 set clipboard+=unnamedplus
 
-" airline
+" Airline
 let g:airline_powerline_fonts=1
-let g:airline#extensions#wordcount#filetypes='pandoc\|text\|' "Add support when pandoc is activated
+let g:airline#extensions#wordcount#filetypes='pandoc\|text\|'                   "Add support when pandoc is activated
 let g:airline_theme='nord'
 
-" vim-table-mode
+" Vim-table-mode. Set the table separator
 let g:table_mode_corner='|'
 
-" NERDTree
+" NERDTree. By default, NERDTree is open when no file is provided when launching vim/neovim
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinSize=40
@@ -130,7 +128,7 @@ let g:NERDTreeWinSize=40
 let g:vim_json_syntax_conceal=0
 
 " ctrlP
-" match window position
+" Match window position, number of results
 let g:ctrlp_match_window='top,order:ttb,min:1,max:10,results:10'
 "set the working directory
 let g:ctrlp_working_path_mode='ra'
@@ -148,8 +146,18 @@ nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
 " ctrl+t toggle autoformat (mainly to deactivate it when necessary)
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
 
-" Linters
-let g:syntastic_scss_checkers = ['scss_lint']       " SCSS
+" Linters (syntastic configuration)
+" SCSS linter
+let g:syntastic_scss_checkers = ['scss_lint']
+" Python linters. I define this list mainly to avoid pylint which I can't
+" manage to use correctly and is required on my main OS.
+let g:syntastic_python_checkers=['flake8', 'pep8', 'pycodestyle', 'pyflakes']
+" Copy pasting of the basic configuration recommended by syntastic
+" https://github.com/vim-syntastic/syntastic#settings
+" but without the statusline settings to improve comptability with airline.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
 
 " autocompletion
 let g:deoplete#enable_at_startup=1                " start deoplete at startup
