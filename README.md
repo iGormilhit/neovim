@@ -9,6 +9,11 @@ Firstly, I don't use any more `pathogen` for the management of plugins, but
 
 I'm using the [nord color scheme][5].
 
+## To do
+
+- [ ] Document how to use `pyenv` to provide a python engine.
+- [ ] Identify the python package dependencies.
+
 ## Requirements
 
 1. `neovim`

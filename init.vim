@@ -24,12 +24,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'                           " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'vim-syntastic/syntastic'                      " Syntax checking (linting)
 " Auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'                          " source for python autocompletion
 Plug 'Shougo/neco-syntax'                           " other sources for autocompletion
 Plug 'davidhalter/jedi-vim'                         " Code jump
-Plug 'neomake/neomake'                              " Python linting
 " Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'
@@ -148,6 +148,9 @@ nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
 " ctrl+t toggle autoformat (mainly to deactivate it when necessary)
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
 
+" Linters
+let g:syntastic_scss_checkers = ['scss_lint']       " SCSS
+
 " autocompletion
 let g:deoplete#enable_at_startup=1                " start deoplete at startup
 " Close suggestion window at completion
@@ -164,16 +167,8 @@ let g:jedi#use_splits_not_buffers="right"
 " Python provider in a pyenv
 let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 
-" Python linting
-let g:neomake_python_enabled_makers=['flake8']
-
 " Imports sorting
 let g:isort_command='isort'
-
-call neomake#configure#automake('nrwi', 500)        " autolint
-
-" Should avoid deoplete to slow down the closing process
-" au TermClose * call OnTermClose()
 
 " Syntax coloration and color theme
 syntax enable
