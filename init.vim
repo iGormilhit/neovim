@@ -8,7 +8,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Ma
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }              " Helper for table in markdown
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }                                  " Distraction free mode for writing
 Plug 'dpelle/vim-Grammalecte'                                               " French ortho/grammar spelling
-Plug 'gu-fan/riv.vim', { 'for': 'rst' }                                     " restructuredtext syntax support
 Plug 'arcticicestudio/nord-vim'                                             " Nord color scheme
 Plug 'vim-airline/vim-airline'                                              " Fancy bottom line in vim/neovim
 Plug 'vim-airline/vim-airline-themes'                                       " Themes for vim-airlines
@@ -34,6 +33,7 @@ Plug 'vitalk/vim-simple-todo'
 Plug 'kien/ctrlp.vim'                                                       " Search 'Ctrl+P' like
 Plug 'jremmen/vim-ripgrep'                                                  " Use ripgrep as vimgrep
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy search, ensure fzf is fresh installed
+Plug 'stsewd/fzf-checkout.vim'                                              " Fuzzy search in git branches
 Plug 'junegunn/fzf.vim'                                                     " fzf for vim/neovim
 call plug#end()
 
@@ -145,6 +145,7 @@ nnoremap <C-s> :call pandoc#formatting#UseSoftWraps()
 nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
 " ctrl+t toggle autoformat (mainly to deactivate it when necessary)
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
+let g:mkdp_filetypes = ['markdown', 'pandoc', 'pandoc.markdown']
 
 " Linters (syntastic configuration)
 " SCSS linter
