@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'                     " Nord color scheme
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-sensible'                           " default settings
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Markdown preview
 Plug 'vim-pandoc/vim-pandoc'                        " pandoc support 
 Plug 'vim-pandoc/vim-pandoc-syntax'                 " markdown syntax support 
 Plug 'vim-airline/vim-airline'
@@ -17,8 +18,12 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+" Python provider in a pyenv
+let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
+
 " Pandoc
 let g:pandoc#formatting#mode = "hA"
+let g:mkdp_filetypes = ['markdown', 'pandoc', 'pandoc.markdown']            " filetypes for markdown preview
 
 " airline
 let g:airline_powerline_fonts = 1
