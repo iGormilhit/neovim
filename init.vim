@@ -58,6 +58,7 @@ set showmode                                                                " Sh
 set showmatch                                                               " Show matching brackets.
 set ignorecase                                                              " Do case insensitive matching
 set smartcase                                                               " Do smart case matching
+set incsearch                                                               " Enable incremental search
 set hlsearch                                                                " Highlight search
 let g:rg_highlight='true'                                                   " Activate ripgrep Highlighting
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>                                " set C-l to :nohlsearch
@@ -70,9 +71,10 @@ autocmd FileType gitcommit set textwidth=72                                 " Wr
 set colorcolumn=+1                                                          " Colors the tw+1 column
 autocmd FileType gitcommit set colorcolumn+=51                              " Add a colored column at 51 chars for git message titles
 set number	                                                                " Line numbering
-au TermOpen * setlocal listchars= nonumber norelativenumber                 " Start terminal buffer without line numbering
 set cursorline                                                              " Color the cursor line
 set modeline                                                                " Support modelines
+" Terminal
+au TermOpen * setlocal listchars= nonumber norelativenumber                 " Start terminal buffer without line numbering
 
 " Spelling activated, by default for French and English
 set spell
