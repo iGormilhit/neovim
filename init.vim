@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'                                                 " Pa
 Plug 'tpope/vim-surround'                                                   " To manipulate surroundings
 Plug 'tpope/vim-unimpaired'                                                 " Toggle shortcut
 Plug 'tpope/vim-commentary'                                                 " Easy commenting
+Plug 'tpope/vim-repeat'                                                      " Add repeat support for plugin mapping
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }                     " Search Multiple Highlighting
 Plug 'scrooloose/nerdtree'                                                  " Side window files navigation
 Plug 'tpope/vim-fugitive'                                                   " Git commands, useful for other plugins such as nerdtree or fzf
@@ -73,6 +74,7 @@ autocmd FileType gitcommit set colorcolumn+=51                              " Ad
 set number	                                                                " Line numbering
 set cursorline                                                              " Color the cursor line
 set modeline                                                                " Support modelines
+set shada+=r/home/igor/network                                              " Do not keep history when opening files on autofs mounted directories
 " Terminal
 au TermOpen * setlocal listchars= nonumber norelativenumber                 " Start terminal buffer without line numbering
 
