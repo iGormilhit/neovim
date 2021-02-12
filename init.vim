@@ -23,13 +23,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                                          " To
 Plug 'https://github.com/editorconfig/editorconfig-vim'                     " Support of '.editorconfig' files
 Plug 'vim-syntastic/syntastic'                                              " Syntax checking (linting)
 " Auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'                                                  " source for python autocompletion
-Plug 'Shougo/neco-syntax'                                                   " other sources for autocompletion
-Plug 'davidhalter/jedi-vim'                                                 " Code jump
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }      "Python, using jedi
+" Code jump
+Plug 'davidhalter/jedi-vim'                                                 " Code jump for python
 " Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
-Plug 'vitalk/vim-simple-todo'
+Plug 'vitalk/vim-simple-todo'                                               " Allow to manage todo list easily
 " Search
 Plug 'kien/ctrlp.vim'                                                       " Search 'Ctrl+P' like
 Plug 'jremmen/vim-ripgrep'                                                  " Use ripgrep as vimgrep
@@ -164,18 +164,82 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 
-" autocompletion
-let g:deoplete#enable_at_startup=1                " start deoplete at startup
-" Close suggestion window at completion
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" Use tab to sensible items in the suggestion list
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" #########################################
+" #########################################
+" autocompletion, mainly coc configuration
+" as inspired from the project README
 
+" Give more space for displaying messages
+set cmdheight=2
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Install missing coc extensions
+let g:coc_global_extensions = ['coc-html', 'coc-json', 'coc-css', 'coc-markdownlint', 'coc-git'] 
+autocmd FileType scss setl iskeyword+=@-@                                   " Add @ to iskeyword option
+let g:coc_filetype_map = { 'pandoc': 'markdown' }                           " Allow markdownlint to recognized pandoc filetype
+
+" #########################################
+" #########################################
 "Code jump
-" disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled=0
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers="right"
+let g:jedi#use_splits_not_buffers="right"                                   " open the go-to function in split, not another buffer
 
 " Python provider in a pyenv
 let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
