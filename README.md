@@ -1,11 +1,10 @@
 # My `neovim` setup
 
-Having used `neovim` for a few month, with symlinks for the configuration and
-the plugins, I want to start a new setup.
+I'm trying to document my neovim setup. Mostly, I'm using neovim to edit
+markdown, HTML, CSS/SCSS and python files.
 
-Firstly, I don't use any more `pathogen` for the management of plugins, but
-`vim-plug` instead. To install and activate `vim-plug` see the
-[documentation][1].
+I'm using `vim-plug` as a plugin manager. To install and activate `vim-plug`
+see the [documentation][1].
 
 I'm using the [nord color scheme][5].
 
@@ -13,12 +12,20 @@ I'm using the [nord color scheme][5].
 
 - [ ] Document how to use `pyenv` to provide a python engine.
 - [ ] Identify the python package dependencies.
+  - `jedi`.
+  - `jedi-language-server`.
+  - `flake8`.
+  - `neovim`.
+  - `pycodestyle`.
+  - `pyflakes`.
+  - `pynvim`.
 
 ## Requirements
 
 1. `neovim`
 1. `git`
 1. `nodejs`, `yarn`
+1. [vim-plug][1]
 1. [ripgrep][2]
 1. [The Silver Searcher (`ag`)][3]
 1. `grammalecte`, the python standalone program.
@@ -31,6 +38,7 @@ I'm using the [nord color scheme][5].
 1. Clone the repository.
 1. Create a symlink.
 1. Check [the requirements][4].
+    - [Install `vim-plug`][7].
 1. Start `neovim`.
 1. Install the plugins (`:PlugInstall`).
 
@@ -41,8 +49,9 @@ nvim
 :PlugInstall
 ```
 
-[1]: https://github.com/junegunn/vim-plug/blob/master/README.md#neovim
+[1]: https://github.com/junegunn/vim-plug
 [2]: https://github.com/BurntSushi/ripgrep
 [3]: https://github.com/ggreer/the_silver_searcher
 [4]: /requirements
 [5]: https://www.nordtheme.com/ports/vim
+[7]: https://github.com/junegunn/vim-plug#installation
