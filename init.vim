@@ -7,6 +7,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'                                         " Ma
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Markdown preview
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }              " Helper for table in markdown
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }                                  " Distraction free mode for writing
+Plug 'lervag/vimtex'                                                        " Filetype and syntax plugin for LaTeX files
 Plug 'dpelle/vim-Grammalecte'                                               " French ortho/grammar spelling
 Plug 'arcticicestudio/nord-vim'                                             " Nord color scheme
 Plug 'vim-airline/vim-airline'                                              " Fancy bottom line in vim/neovim
@@ -151,12 +152,17 @@ nnoremap <C-h> :call pandoc#formatting#UseHardWraps()
 nnoremap <C-t> :call pandoc#formatting#ToggleAutoformat()
 let g:mkdp_filetypes = ['markdown', 'pandoc', 'pandoc.markdown']
 
+" #########################################
+" #########################################
 " Linters (syntastic configuration)
+"
 " SCSS linter
 let g:syntastic_scss_checkers = ['scss_lint']
+
 " Python linters. I define this list mainly to avoid pylint which I can't
 " manage to use correctly and is required on my main OS.
 let g:syntastic_python_checkers=['flake8', 'pep8', 'pycodestyle', 'pyflakes']
+
 " Copy pasting of the basic configuration recommended by syntastic
 " https://github.com/vim-syntastic/syntastic#settings
 " but without the statusline settings to improve comptability with airline.
@@ -232,7 +238,7 @@ function! s:show_documentation()
 endfunction
 
 " Install missing coc extensions
-let g:coc_global_extensions = ['coc-html', 'coc-json', 'coc-css', 'coc-markdownlint', 'coc-git'] 
+let g:coc_global_extensions = ['coc-html', 'coc-json', 'coc-css', 'coc-markdownlint', 'coc-git', 'coc-vimtex'] 
 autocmd FileType scss setl iskeyword+=@-@                                   " Add @ to iskeyword option
 let g:coc_filetype_map = { 'pandoc': 'markdown' }                           " Allow markdownlint to recognized pandoc filetype
 
