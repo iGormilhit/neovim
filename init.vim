@@ -88,27 +88,36 @@ autocmd FileType gitcommit setlocal spelllang=en
 " Path for grammalecte-cli to get grammar check in French
 let g:grammalecte_cli_py='/usr/bin/grammalecte-cli'
 
-" Consider `.jsonld` as JSON
-autocmd BufNewFile,BufRead *.jsonld set filetype=json
-" tabstop to 2 for JSON
-au FileType json set tabstop=2
-au FileType json set softtabstop=2
-au FileType json set shiftwidth=2
-
+" #########################################
+" #########################################
 " Fold
 set foldmethod=syntax
 set foldlevel=1
-" Fold type for JSON
+
+" #########################################
+" #########################################
+" Default filetype configuration 
+
+" Markdown
+autocmd FileType pandoc set tabstop=2
+autocmd FileType pandoc set softtabstop=2
+autocmd FileType pandoc set shiftwidth=2
+
+" JSON
+" Consider `.jsonld` as JSON
+autocmd BufNewFile,BufRead *.jsonld set filetype=json
 autocmd FileType json setlocal foldmethod=syntax
-" Default fold type for JSON
 autocmd FileType json set foldlevel=2
 autocmd FileType json set tabstop=2
 autocmd FileType json set softtabstop=2
-" Default fold type for HTML 
+au FileType json set shiftwidth=2
+
+" HTML 
 autocmd FileType html set tabstop=2
 autocmd FileType html set softtabstop=2
 autocmd FileType html set shiftwidth=2
-" Default fold type for XML 
+
+" XML 
 let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
 autocmd FileType xml set foldlevel=1
