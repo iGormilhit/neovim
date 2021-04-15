@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree'                                                  " Si
 Plug 'tpope/vim-fugitive'                                                   " Git commands, useful for other plugins such as nerdtree or fzf
 Plug 'Xuyuanp/nerdtree-git-plugin'                                          " To see new or modified files in the nerdtree window
 Plug 'https://github.com/editorconfig/editorconfig-vim'                     " Support of '.editorconfig' files
+Plug 'shmargum/vim-sass-colors'                                             " Highlight sass/scss/less/css colors and color variables
 Plug 'vim-syntastic/syntastic'                                              " Syntax checking (linting)
 " Auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -75,6 +76,7 @@ autocmd FileType gitcommit set colorcolumn+=51                              " Ad
 set number	                                                                " Line numbering
 set cursorline                                                              " Color the cursor line
 set modeline                                                                " Support modelines
+set termguicolors                                                           " Enable termguicolors
 set shada+=r/home/igor/network                                              " Do not keep history when opening files on autofs mounted directories
 " Terminal
 au TermOpen * setlocal listchars= nonumber norelativenumber                 " Start terminal buffer without line numbering
@@ -247,7 +249,7 @@ function! s:show_documentation()
 endfunction
 
 " Install missing coc extensions
-let g:coc_global_extensions = ['coc-html', 'coc-json', 'coc-css', 'coc-markdownlint', 'coc-git', 'coc-vimtex'] 
+let g:coc_global_extensions = ['coc-html', 'coc-json', 'coc-css', 'coc-markdownlint', 'coc-git', 'coc-vimtex', 'coc-yaml'] 
 autocmd FileType scss setl iskeyword+=@-@                                   " Add @ to iskeyword option
 let g:coc_filetype_map = { 'pandoc': 'markdown' }                           " Allow markdownlint to recognized pandoc filetype
 
