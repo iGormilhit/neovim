@@ -8,6 +8,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }     " Ma
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeEnable' }              " Helper for table in markdown
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }                                  " Distraction free mode for writing
 Plug 'lervag/vimtex'                                                        " Filetype and syntax plugin for LaTeX files
+Plug 'chiefnoah/neuron-v2.vim'                                              " To manage Zettlekasten the neuron way
 Plug 'dpelle/vim-Grammalecte'                                               " French ortho/grammar spelling
 Plug 'arcticicestudio/nord-vim'                                             " Nord color scheme
 Plug 'vim-airline/vim-airline'                                              " Fancy bottom line in vim/neovim
@@ -48,7 +49,7 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
-" add some tags for html indentations
+"" add some tags for html indentations
 let g:html_indent_inctags="html,body,head,tbody"
 
 set smartindent
@@ -263,6 +264,8 @@ let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 
 " Imports sorting
 let g:isort_command='isort'
+
+let g:neuron_dir = "/home/igor/ecriture/fiches-test"
 
 " Syntax coloration and color theme
 syntax enable
