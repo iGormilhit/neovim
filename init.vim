@@ -40,9 +40,6 @@ Plug 'stsewd/fzf-checkout.vim'                                              " Fu
 Plug 'junegunn/fzf.vim'                                                     " fzf for vim/neovim
 call plug#end()
 
-" Filetype detection
-filetype plugin on
-
 " Format indentation
 if has("autocmd")
   filetype plugin indent on
@@ -61,8 +58,6 @@ set showmode                                                                " Sh
 set showmatch                                                               " Show matching brackets.
 set ignorecase                                                              " Do case insensitive matching
 set smartcase                                                               " Do smart case matching
-set incsearch                                                               " Enable incremental search
-set hlsearch                                                                " Highlight search
 let g:rg_highlight='true'                                                   " Activate ripgrep Highlighting
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>                                " set C-l to :nohlsearch
 set autowrite                                                               " Automatically save before commands like :next and :make
@@ -124,7 +119,7 @@ let g:xml_syntax_folding=3
 au FileType xml setlocal foldmethod=syntax
 autocmd FileType xml set foldlevel=1
 
-" Copy to clipboard with `"+y`
+" Use the system clipboard
 set clipboard+=unnamedplus
 
 " Airline
@@ -266,5 +261,4 @@ let g:isort_command='isort'
 
 " Syntax coloration and color theme
 syntax enable
-set background=dark
 colorscheme nord
