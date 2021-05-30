@@ -27,9 +27,6 @@ Plug 'vim-syntastic/syntastic'                                              " Sy
 " Auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }      "Python, using jedi
-" Code jump
-Plug 'davidhalter/jedi-vim'                                                 " Code jump for python
-" Imports sorting
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'                                               " Allow to manage todo list easily
 " Search
@@ -250,9 +247,6 @@ let g:coc_filetype_map = { 'pandoc': 'markdown' }                           " Al
 
 " #########################################
 " #########################################
-"Code jump
-let g:jedi#use_splits_not_buffers="right"                                   " open the go-to function in split, not another buffer
-
 " Python provider in a pyenv
 let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 
