@@ -33,8 +33,8 @@ Plug 'vitalk/vim-simple-todo'                                               " Al
 Plug 'kien/ctrlp.vim'                                                       " Search 'Ctrl+P' like
 Plug 'jremmen/vim-ripgrep'                                                  " Use ripgrep as vimgrep
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy search, ensure fzf is fresh installed
-Plug 'stsewd/fzf-checkout.vim'                                              " Fuzzy search in git branches
 Plug 'junegunn/fzf.vim'                                                     " fzf for vim/neovim
+Plug 'stsewd/fzf-checkout.vim'                                              " Fuzzy search in git branches
 call plug#end()
 
 " Format indentation
