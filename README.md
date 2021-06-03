@@ -49,6 +49,19 @@ nvim
 :PlugInstall
 ```
 
+## External configuration
+
+In order to improve the `fzf` preview window display, it's possible to
+configure it through the following `env` variable:
+
+```bash
+export FZF_DEFAULT_OPTS="--preview='bat --style=numbers --color=always --line-range :500 {}' \
+                         --border \
+                         --color 'border:#4c566a,info:#4c566a,pointer:#88c0d0,prompt:#5e81ac,bg+:#3b4252,hl:#a3be8c'"
+```
+
+See the `fzf` documentation: <https://github.com/junegunn/fzf#preview-window>
+
 [1]: https://github.com/junegunn/vim-plug
 [2]: https://github.com/BurntSushi/ripgrep
 [3]: https://github.com/ggreer/the_silver_searcher
