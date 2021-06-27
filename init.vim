@@ -253,6 +253,18 @@ let g:python3_host_prog='/home/igor/.pyenv/versions/neovim3/bin/python'
 " Imports sorting
 let g:isort_command='isort'
 
+" #########################################
+" #########################################
+let g:vimtex_compiler_latexmk = { 
+        \ 'executable' : 'latexmk',
+        \ 'options' : [ 
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+
 " Syntax coloration and color theme
 syntax enable
 colorscheme nord
