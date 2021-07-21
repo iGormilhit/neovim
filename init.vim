@@ -30,7 +30,6 @@ Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build'
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'vitalk/vim-simple-todo'                                               " Allow to manage todo list easily
 " Search
-Plug 'kien/ctrlp.vim'                                                       " Search 'Ctrl+P' like
 Plug 'jremmen/vim-ripgrep'                                                  " Use ripgrep as vimgrep
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy search, ensure fzf is fresh installed
 Plug 'junegunn/fzf.vim'                                                     " fzf for vim/neovim
@@ -128,21 +127,12 @@ let g:airline_theme='nord'
 let g:table_mode_corner='|'
 
 " NERDTree. By default, NERDTree is open when no file is provided when launching vim/neovim
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeWinSize=40
 
 " vim-json, don't conceal
 let g:vim_json_syntax_conceal=0
-
-" ctrlP
-" Match window position, number of results
-let g:ctrlp_match_window='top,order:ttb,min:1,max:10,results:10'
-"set the working directory
-let g:ctrlp_working_path_mode='ra'
-" enable caching
-let g:ctrlp_use_caching=1
-let g:ctrlp_clear_cache_on_exit=0
 
 " Pandoc
 " Autoformatting with hardwrap
@@ -264,6 +254,17 @@ let g:vimtex_compiler_latexmk = {
         \   '-interaction=nonstopmode',
         \ ],
         \}
+
+" #########################################
+" #########################################
+" Key bindings for FZF
+nnoremap <leader>gf :GFiles<CR>
+nnoremap <leader>gs :GFiles?<CR>
+nnoremap <leader>h :History<CR>
+nnoremap <leader>hc :History:<CR>
+nnoremap <leader>hs :History/<CR>
+nnoremap <leader>l :Lines<CR>
+nnoremap <leader>bl :BLines<CR>
 
 " Syntax coloration and color theme
 syntax enable
